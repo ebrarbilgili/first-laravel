@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PostsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,7 +20,17 @@ Route::get('/', function () {
     return 'Hi You';
 });
 
-Route::get('/post', 'PostsController@index');
+// Route::get('/post', 'PostsController@index'); => LARAVEL 7
+//LARAVEL 8 =>
+// Route::get('/post', [PostsController::class, 'index']);
+// Route::get('/post/{id}', [PostsController::class, 'index']);
+
+// Route::resource('posts', PostsController::class);
+
+
+Route::get('/contact',[PostsController::class, 'contact']);
+
+Route::get('/post/{id}/{name}/{password}', [PostsController::class, 'show_post']);
 
 
 // Route::get('/about', function () {

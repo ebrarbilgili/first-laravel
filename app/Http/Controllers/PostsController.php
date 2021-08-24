@@ -11,9 +11,11 @@ class PostsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($id)
     {
         //
+
+        return "its working " . $id;
     }
 
     /**
@@ -24,6 +26,8 @@ class PostsController extends Controller
     public function create()
     {
         //
+
+        return "I am the method that creates stuff";
     }
 
     /**
@@ -46,6 +50,8 @@ class PostsController extends Controller
     public function show($id)
     {
         //
+
+        return "This is the show method " . $id;
     }
 
     /**
@@ -80,5 +86,16 @@ class PostsController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function contact()
+    {
+        return view('pages.contact');
+    }
+
+    public function show_post($id,$name,$password)
+    {
+        // return view('post')->with('id',$id);
+        return view('post', compact('id', 'name', 'password'));
     }
 }
